@@ -1,0 +1,96 @@
+<div class="box">
+    <h2 [style]="{ 'font-size': '86px' }">{{ emoji }}</h2>
+    <!-- <div class="main-title">{{ name }}'s website</div> -->
+    <h1>{{ name }}'s website</h1>
+    <input #queryInput type="text" placeholder="Search images">
+    <button (click)="searchPhotos(queryInput.value)">Search</button>
+    <button (click)="openBackgroundModal()">Select Background</button>
+    <button (click)="openColorModal()">Select Color</button>
+    <button (click)="openBorderImageModal()">Select Border Image</button>
+    <button (click)="openFontModal()">Select Font</button>
+    <button (click)="resetStyles()">Reset</button>
+
+    <!-- <p *ngIf="loading">Loading photos...</p> -->
+    <div *ngIf="loading" class="spinner"></div>
+
+    <div class="grid">
+    <div *ngFor="let photo of photos" class="item">
+        <img class="img" [src]="photo.urls.regular" />
+        <div class="caption">
+        <span class="credits">Photo by 
+            <a [href]="photo.user.links.html + utm">{{ photo.user.name }}</a> 
+            <span> on </span> 
+            <a [href]="'https://unsplash.com' + utm">Unsplash</a>
+            <span> see link </span> 
+            <a [href]="photo.links.html + utm">Link</a>
+        </span>
+        </div>
+    </div>
+    </div>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+</div>
+
+<div *ngIf="isBackgroundModalOpen" class="modal-overlay" (click)="closeBackgroundModal()"></div>
+
+<div class="modal-main" *ngIf="isBackgroundModalOpen">
+    <div class="modal-content">
+        <h3>Select a Background</h3>
+        <div class="grid">
+            <div class="background-card" *ngFor="let bg of backgrounds" (click)="selectBackground(bg.url)">
+                <img [src]="bg.url" [alt]="bg.name" class="background-img first-border">
+                <p>{{ bg.name }}</p>
+            </div>
+        </div>
+        <button (click)="closeBackgroundModal()">×</button>
+    </div>
+</div>
+
+<div *ngIf="isColorModalOpen" class="modal-overlay" (click)="closeColorModal()"></div>
+
+<div class="modal-main" *ngIf="isColorModalOpen">
+    <div class="modal-content">
+        <h3>Select a Color</h3>
+        <div class="grid-colors">
+            <div class="color-card" *ngIf="!colors.length">No colors available</div>
+            <div class="color-card" *ngFor="let color of colors" (click)="selectColor(color.color)">
+                <div class="color-swatch" [style.background]="color.color"></div>
+                <p>{{ color.name }}</p>
+            </div>
+        </div>
+        <button (click)="closeColorModal()">×</button>
+    </div>
+</div>
+
+<div *ngIf="isBorderImageModalOpen" class="modal-overlay" (click)="closeBorderImageModal()"></div>
+
+<div class="modal-main" *ngIf="isBorderImageModalOpen">
+    <div class="modal-content">
+        <h3>Select a Border Image</h3>
+        <div class="grid">
+            <div class="background-card" *ngIf="!borderImages.length">No border images available</div>
+            <div class="background-card" *ngFor="let borderImage of borderImages" (click)="selectBorderImage(borderImage.url)">
+                <img [src]="borderImage.url" [alt]="borderImage.name" class="background-img second-border">
+                <p>{{ borderImage.name }}</p>
+            </div>
+        </div>
+        <button (click)="closeBorderImageModal()">×</button>
+    </div>
+</div>
+
+
+<div *ngIf="isFontModalOpen" class="modal-overlay" (click)="closeFontModal()"></div>
+
+<div class="modal-main" *ngIf="isFontModalOpen">
+    <div class="modal-content">
+        <h3>Select a Font</h3>
+        <div class="grid">
+            <div class="font-card" *ngIf="!fonts.length">No fonts available</div>
+            <div class="font-card" *ngFor="let font of fonts" (click)="selectFont(font.value)">
+                <p>{{ font.name }}</p>
+            </div>
+        </div>
+        <button (click)="closeFontModal()">×</button>
+    </div>
+</div>
+

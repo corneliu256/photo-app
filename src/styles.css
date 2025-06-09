@@ -1,1 +1,191 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Museo+Moderno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+body {
+    background: var(--background-image) no-repeat center center fixed;
+    padding-top: 15px;
+    color: var(--main-color);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.item {
+    margin: 0 0 10px;
+    position: relative;
+}
+
+
+
+h2 {
+    margin:0;
+    font-size: 40px;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 75px;
+    color: var(--main-color);
+    font-family: var(--main-font);
+}
+
+
+html {
+    padding: 0 20px; 
+}
+
+.img {
+
+    box-sizing: border-box;
+    width: 100% !important;
+    /* height: auto !important; */
+    height: 100%;
+    /* object-fit: cover; */
+    border: 5px solid var(--main-color);
+    border-image: var(--main-border) 100;
+    border-width: 5px;
+    border-style: solid;
+} 
+
+.first-border {
+    border: 5px solid var(--main-color);
+}
+
+.second-border {
+    border-image: var(--main-border) 100;
+    border-width: 5px;
+    border-style: solid;
+}
+
+/* .caption {
+    display: none;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+}
+
+.caption a {
+    color: white;
+}
+
+.item:hover .caption {
+    display: block;
+} */
+
+:root {
+    /* --wooden: url(https://scrimba.ams3.digitaloceanspaces.com/assets/courses/gdegree/Horror/wooden.jpg);
+    --forest: url(https://scrimba.ams3.digitaloceanspaces.com/assets/courses/gdegree/Horror/forest.jpg);
+    --sweets: url(https://scrimba.ams3.digitaloceanspaces.com/assets/courses/gdegree/Cute/sweets1.jpg);
+    --bubbles: url(https://scrimba.ams3.digitaloceanspaces.com/assets/courses/gdegree/Cute/bubbles.jpg);
+    --crackle: url(https://scrimba.ams3.digitaloceanspaces.com/assets/courses/gdegree/Minimalist/crackle.jpg);
+    --sparkle: url(https://scrimba.ams3.digitaloceanspaces.com/assets/courses/gdegree/Minimalist/sparkle.jpg);
+    --rainbow: url(https://scrimba.ams3.digitaloceanspaces.com/assets/courses/gdegree/Rainbow/rainbow-paint.jpg);
+    --smoke: url(https://scrimba.ams3.digitaloceanspaces.com/assets/courses/gdegree/Rainbow/rainbow-smoke.jpg);
+    --nightsky: url(https://scrimba.ams3.digitaloceanspaces.com/assets/courses/gdegree/Sleek/nightsky.jpg);
+    --sunset: url(https://scrimba.ams3.digitaloceanspaces.com/assets/courses/gdegree/Sleek/sunset.jpg); */
+
+    --wooden: url(http://localhost:4200/backgrounds/wooden.jpg);
+    --forest: url(http://localhost:4200/backgrounds/forest.jpg);
+    --sweets: url(http://localhost:4200/backgrounds/sweets1.jpg);
+    --bubbles: url(http://localhost:4200/backgrounds/bubbles.jpg);
+    --crackle: url(http://localhost:4200/backgrounds/crackle.jpg);
+    --sparkle: url(http://localhost:4200/backgrounds/sparkle.jpg);
+    --rainbow: url(http://localhost:4200/backgrounds/rainbow-paint.jpg);
+    --smoke: url(http://localhost:4200/backgrounds/rainbow-smoke.jpg);
+    --nightsky: url(http://localhost:4200/backgrounds/nightsky.jpg);
+    --sunset: url(http://localhost:4200/backgrounds/sunset.jpg);
+
+    
+    /* COLORS */
+    --blood: #8a0303;
+    --slime: #228B22;
+    --gloom: #2B363B;
+    --candy: #ee698e;
+    --purple: #7B1E7A;
+    --blue: #2176AE;
+    --olive: #A6C48A;    
+    --royal: #0A1045;
+    --lilac: #B8AED6;
+    --snow: #f4f9e9;
+    
+    /* FONTS */
+    --scary-font: 'Metal Mania';
+    --typewriter-font: 'Inconsolata';
+    --funny-font: 'Balsamiq Sans';
+    --curly-font: 'Pacifico';
+    --old-style-font: 'Cinzel';
+    --simple-font: 'Noto Sans HK';
+    --funky-font: 'MuseoModerno';
+    --sweet-font: 'Lobster';
+    --fancy-font: 'Playfair Display';
+    --fancy-font2: 'Cinzel Decorative';
+}
+
+
+body {
+    /*
+    CHALLENGE: change the background to one you like
+    */
+    
+    --background-image: var(--wooden);
+    
+    /*
+    CHALLENGE: change the main color to one you like!
+    */
+    --main-color: var(--slime);
+    
+     /* 
+    CHALLENGE: change the font to one you think is cool
+    */
+    /* font-family: var(--main-font); */
+    font-family: var(--main-font);
+    --main-font: var(--simple-font);
+
+    --main-border: var(--sweets);
+}
+
+
+.grid {
+    /* 
+    BONUS CHALLENGE: adjust how many columns you'd like to have
+    */
+   column-count: 5;
+   column-gap: 10px;
+}
+
+.spinner {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* .item:hover .img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+} */
+
+

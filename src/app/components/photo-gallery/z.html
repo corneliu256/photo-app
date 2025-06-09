@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            text-align: center;
+        }
+
+        .modal button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background-color: #0056b3;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .background-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .background-img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .box {
+            margin: 150px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            /* margin: 5px; */
+            z-index: 1;
+        }
+
+        .title, .btnOpenModal  {
+            position: fixed;
+            top: 10px;
+            z-index: 10000;
+        }
+
+        .title {
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: #333;
+        }
+        .btnOpenModal {
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btnOpenModal:hover {
+            background-color: #0056b3;
+        }
+
+
+    </style>
+    <script>
+        function openModal() {
+            const modal = document.createElement('div');
+            modal.classList.add('modal');
+
+            const modalContent = document.createElement('div');
+            modalContent.classList.add('modal-content');
+            modal.appendChild(modalContent);
+            const title = document.createElement('h3');
+            title.textContent = 'Select a Background';
+            modalContent.appendChild(title);
+            const backgrounds = [
+                { url: 'backgrounds/bubbles.jpg', name: 'Bubbles' },
+                { url: 'backgrounds/crackle.jpg', name: 'Crackle' },
+                { url: 'backgrounds/forest.jpg', name: 'Forest' },
+                { url: 'backgrounds/nightsky.jpg', name: 'Night Sky' },
+                { url: 'backgrounds/rainbow-paint.jpg', name: 'Rainbow Paint' },
+                { url: 'backgrounds/rainbow-smoke.jpg', name: 'Rainbow Smoke' },
+                { url: 'backgrounds/sparkle.jpg', name: 'Sparkle' },
+                { url: 'backgrounds/sunset.jpg', name: 'Sunset' },
+                { url: 'backgrounds/sweets1.jpg', name: 'Sweets 1' },
+                { url: 'backgrounds/wooden.jpg', name: 'Wooden' }
+            ];
+            const grid = document.createElement('div');
+            grid.classList.add('grid');
+            modalContent.appendChild(grid);
+            backgrounds.forEach(bg => {
+                const bgCard = document.createElement('div');
+                bgCard.classList.add('background-card');
+                bgCard.onclick = () => selectBackground(bg.url);
+
+                const img = document.createElement('img');
+                img.src = bg.url;
+                img.alt = bg.name;
+                img.classList.add('background-img');
+
+                const name = document.createElement('p');
+                name.textContent = bg.name;
+
+                bgCard.appendChild(img);
+                bgCard.appendChild(name);
+                grid.appendChild(bgCard);
+            });
+
+            const closeBtn = document.createElement('button');
+            closeBtn.textContent = '×';
+            modalContent.appendChild(closeBtn);
+
+            closeBtn.onclick = () => modal.remove();
+
+            document.body.appendChild(modal);
+
+        }
+
+        selectBackground = (url) => {
+            const newImg = document.createElement('img');
+            newImg.src = url;
+            newImg.alt = 'Selected Background';
+            newImg.style.width = '100%';
+            newImg.style.height = '100%';
+            newImg.style.objectFit = 'cover';
+            newImg.style.borderRadius = '8px';
+            newImg.style.position = 'absolute';
+            newImg.style.top = '0';
+            newImg.style.left = '0';
+            newImg.style.zIndex = '0';
+            document.body.appendChild(newImg);
+            closeModal();
+        }
+
+        function closeModal() {
+            const modal = document.querySelector('.modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1 class="title">🌟Background Gallery🌟</h1>
+    <button onclick="openModal()" class="btnOpenModal">Select Background</button>
+    
+    <div class="box">
+        <img src="backgrounds/bubbles.jpg" alt="">
+        <img src="backgrounds/crackle.jpg" alt="">
+        <img src="backgrounds/forest.jpg" alt="">
+        <img src="backgrounds/nightsky.jpg" alt="">
+        <img src="backgrounds/rainbow-paint.jpg" alt="">
+        <img src="backgrounds/rainbow-smoke.jpg" alt="">
+        <img src="backgrounds/sparkle.jpg" alt="">
+        <img src="backgrounds/sunset.jpg" alt="">
+        <img src="backgrounds/sweets1.jpg" alt="">
+        <img src="backgrounds/wooden.jpg" alt="">
+    </div>
+
+</body>
+
+</html>
